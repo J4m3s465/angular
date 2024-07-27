@@ -1,0 +1,27 @@
+<div class="container mt-3">
+    <input value="hola" [(ngModel)]="anio">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Año</th>
+                <th>Genero</th>
+                <th>Enlace</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(item of peliculas; track item){
+            @if(item.anio>anio){
+            <tr>
+                <td>{{item.nombre}}</td>
+                <td>{{item.anio}}</td>
+                <td>{{item.genero}}</td>
+                <td>
+                    <button [routerLink]="['/detalles', item.id]">Ver</button>
+                </td>
+            </tr>
+            }
+            }
+        </tbody>
+    </table>
+</div>
